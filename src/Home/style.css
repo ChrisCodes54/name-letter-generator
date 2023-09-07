@@ -1,4 +1,13 @@
-.input-container {
+
+.real-container {
+    display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  
+}
+
+.container {
+
     margin: auto;
     width: 30%;
     border: 3px solid red;
@@ -11,4 +20,3 @@
     font-weight: bold;
     padding-bottom: 10px;
 }
-

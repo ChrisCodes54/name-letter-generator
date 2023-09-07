@@ -6,7 +6,9 @@ import './style.css'
 
 export default function Home() {
     return (
-        <div className='input-container'>
+        <div className='real-container '>
+
+        <div className='container'>
 
             <div className='text-container'>Enter your name below!</div>
             <div class="input-group mb-3">
@@ -15,6 +17,7 @@ export default function Home() {
 
             <button type="button" class="btn btn-danger">Primary</button>
 
+        </div>
         </div>
     )
 }
