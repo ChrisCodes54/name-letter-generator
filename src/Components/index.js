@@ -3,18 +3,14 @@ import './style.css'
 
 export default function NameInputForm() {
   return (
-    <div className='real-container '>
-
-        <div className='container'>
-
-            <div className='text-container'>Enter your name below!</div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1" />
-            </div>
-
-            <button type="button" class="btn btn-danger">Primary</button>
-
-        </div>
-        </div>
+    <div className="input-container border border-3 border-danger rounded p-3">
+			<div className="mb-3">Enter your name below!</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Name" />
+			</div>
+			<button type="button" class="btn btn-danger">
+				Primary
+			</button>
+		</div>
   )
 }

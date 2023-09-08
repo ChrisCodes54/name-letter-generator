@@ -1,12 +1,12 @@
-import Home from './Home/index'
-import './App.css';
+import Home from "./Home/index";
+import "./App.css";
 
 function App() {
   return (
     <>
-      <Home />
-
-
+      <div id="main" className="d-flex justify-content-center align-items-center">
+        <Home />
+      </div>
     </>
   );
 }
