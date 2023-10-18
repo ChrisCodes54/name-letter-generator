@@ -4,11 +4,14 @@ import "./style.css";
 export default function NameInputForm() {
   const [name, setName] = useState("");
   const nameRegex = /^[a-zA-Z\s]+$/;
-  const validity = nameRegex.test(name)
+  
 
   const handleClick = () => {
-    if (name.length > 0 && validity) {
-      console.log(name.charAt(Math.floor(Math.random() * name.length)));
+    const trimmedName = name.trim()
+    const validity = nameRegex.test(name)
+
+    if (trimmedName.length > 0 && validity) {
+      console.log(trimmedName.charAt(Math.floor(Math.random() * trimmedName.length)));
     } else {
 		console.log('please type a name!') // currently working to catch if there is a special character 
 	}
