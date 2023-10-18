@@ -4,24 +4,34 @@ import "./style.css";
 export default function NameInputForm() {
   const [name, setName] = useState("");
   const nameRegex = /^[a-zA-Z\s]+$/;
-  
+  const [randomLetter, startLetter] = useState("");
 
   const handleClick = () => {
-    const trimmedName = name.trim()
-    const validity = nameRegex.test(name)
+    const trimmedName = name.trim();
+    const validity = nameRegex.test(name);
 
     if (trimmedName.length > 0 && validity) {
-      console.log(trimmedName.charAt(Math.floor(Math.random() * trimmedName.length)));
+      const randomIndex = Math.floor(Math.random() * trimmedName.length);
+      const newLetter = trimmedName.charAt(randomIndex);
+      startLetter(newLetter);
     } else {
-		console.log('please type a name!') // currently working to catch if there is a special character 
-	}
+      startLetter("");
+      alert("please type a name without any special characters");
+    }
   };
   const handleInputChange = (event) => {
     setName(event.target.value);
   };
 
   return (
+    <>
     <div className="input-container border border-3 border-danger rounded p-3 ">
+    { randomLetter && (
+        <div className="mb-3 d-flex justify-content-center">
+          Random Letter: {randomLetter}
+
+          </div>
+      )}
       <div className="mb-3 d-flex justify-content-center">
         Enter your name below!
       </div>
@@ -40,6 +50,8 @@ export default function NameInputForm() {
           Submit
         </button>
       </div>
+      
     </div>
+    </>
   );
 }
