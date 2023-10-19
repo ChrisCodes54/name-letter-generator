@@ -4,7 +4,7 @@ import "./style.css";
 export default function NameInputForm() {
   const [name, setName] = useState("");
   const nameRegex = /^[a-zA-Z\s]+$/;
-  const [randomLetter, startLetter] = useState("");
+  const [randomLetter, setRandomLetter] = useState("");
 
   const handleClick = () => {
     const trimmedName = name.trim();
@@ -13,9 +13,9 @@ export default function NameInputForm() {
     if (trimmedName.length > 0 && validity) {
       const randomIndex = Math.floor(Math.random() * trimmedName.length);
       const newLetter = trimmedName.charAt(randomIndex);
-      startLetter(newLetter);
+      setRandomLetter(newLetter);
     } else {
-      startLetter("");
+      setRandomLetter("");
       alert("please type a name without any special characters");
     }
   };
