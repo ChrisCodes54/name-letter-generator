@@ -3,8 +3,8 @@ import "./style.css";
 
 export default function NameInputForm() {
   const [name, setName] = useState("");
-  const nameRegex = /^[a-zA-Z\s]+$/;
   const [randomLetter, setRandomLetter] = useState("");
+const nameRegex = /^[a-zA-Z\s]+$/;
 
   const handleClick = () => {
     const trimmedName = name.trim();
