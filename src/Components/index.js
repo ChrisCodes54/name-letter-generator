@@ -16,7 +16,6 @@ export default function NameInputForm() {
       setRandomLetter(newLetter);
     } else {
       setRandomLetter("");
-      alert("please type a name without any special characters");
     }
   };
   const handleInputChange = (event) => {
