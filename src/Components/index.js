@@ -4,24 +4,34 @@ import "./style.css";
 export default function NameInputForm() {
   const [name, setName] = useState("");
   const [randomLetter, setRandomLetter] = useState("");
-  const nameRegex = /^[a-zA-Z\s]+$/;
-
+  
   const handleClick = () => {
     const trimmedName = name.trim();
+    const nameRegex = /^[a-zA-Z\s]+$/;
     const validity = nameRegex.test(name);
-
+    
     if (trimmedName.length > 0 && validity) {
-      const randomIndex = Math.floor(Math.random() * trimmedName.length);
-      const newLetter = trimmedName.charAt(randomIndex);
-      setRandomLetter(newLetter);
-    } else {
-      setRandomLetter("");
+      let newLetter = '';
+      while (newLetter === '' || newLetter === ' '){
+        newLetter = getRandomLetter(trimmedName)
+      } setRandomLetter(newLetter)
     }
   };
+
+  const getRandomLetter = (name) => {
+    const randomIndex = Math.floor(Math.random() * name.length);
+    return name.charAt(randomIndex)
+  }
   const handleInputChange = (event) => {
-    const inputValue = event.target.value.replace(/[^a-zA-Z\s]+/g, "")
+    const inputValue = event.target.value
     setName(inputValue);
   };
+
+  const handleInput = (event) => {
+    if(!event.key.match(/[a-zA-Z\s]/)) {
+      event.preventDefault();
+    }
+  }
 
   
   
@@ -42,8 +52,8 @@ export default function NameInputForm() {
             className="form-control text-center"
             placeholder="Name"
             id="name-input"
-            value={name}
             onChange={handleInputChange}
+            onKeyDown={handleInput}
           />
         </div>
         <div className="d-flex justify-content-center">
