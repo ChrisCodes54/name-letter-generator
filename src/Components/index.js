@@ -34,7 +34,6 @@ export default function NameInputForm() {
   }
 
   
-  
   return (
     <>
       <div className="input-container border border-3 border-danger rounded p-3 ">
